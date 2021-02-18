@@ -72,7 +72,8 @@ To use the project:
 1. import the package:
 
 .. code-block:: python
-    import pycubedoe
+    
+    import pycubedoe as pc
 
 2. Create a dictionary of your desired factors and their associated levels. pycubedoe can support both numeric and categorical factors. For each factor, build a dictionary as described below:
 
@@ -116,6 +117,7 @@ Both Numeric and Categorical Factors:
 
 3. Build the Design of Experiments (DOE)
 
+.. code-block:: python
 
     DOE = pc.pycubeDOE(params)
 
@@ -152,26 +154,3 @@ Then run the design points over `YOUR_MODEL` where we call pycubedoe's `designPo
         modelResults.append(sim)
     print(modelResults) 
 
-Development
-===========
-
-To run all the tests run::
-
-    tox
-
-Note, to combine the coverage data from all the tox environments run:
-
-.. list-table::
-    :widths: 10 90
-    :stub-columns: 1
-
-    - - Windows
-      - ::
-
-            set PYTEST_ADDOPTS=--cov-append
-            tox
-
-    - - Other
-      - ::
-
-            PYTEST_ADDOPTS=--cov-append tox
