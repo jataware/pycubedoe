@@ -148,6 +148,7 @@ Both Numeric and Categorical Factors:
 Then run the design points over `YOUR_MODEL` where we call pycubedoe's `designPoints` function:
 
 .. code-block:: python
+
     modelResults = []
     for designPT in designPoints(DOE):
         sim = YOUR_MODEL(designPT)
