@@ -7,9 +7,6 @@ Overview
 .. list-table::
     :stub-columns: 1
 
-    * - tests
-      - | |travis|
-        |
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
@@ -36,7 +33,7 @@ Overview
 
 .. |commits-since| image:: https://img.shields.io/github/commits-since/jataware/pycubedoe/v0.0.1.svg
     :alt: Commits since latest release
-    :target: https://github.com/jataware/pycubedoe/compare/v0.0.1...master
+    :target: https://github.com/jataware/pycubedoe/compare/v0.0.1...main
 
 
 
@@ -58,11 +55,11 @@ Installation
 
 ::
 
-    pip3 install pycubedoe
+    pip3 install pycubedoe as pc
 
 You can also install the in-development version with::
 
-    pip3 install https://github.com/jataware/pycubedoe/archive/master.zip
+    pip3 install https://github.com/jataware/pycubedoe/archive/main.zip
 
 
 Documentation
@@ -73,6 +70,7 @@ To use the project:
 
 
 1. import the package:
+
 .. code-block:: python
     import pycubedoe
 
@@ -84,6 +82,7 @@ To use the project:
 For each factor-type, build a dictionary of all your factors under the appropriate dictionary key as shown below:
 
 Numeric Factors Only:
+
 .. code-block:: python
 
     params = {"numeric": {"a":[1,5,2],
@@ -93,6 +92,7 @@ Numeric Factors Only:
              }
 
 Categorical Factors Only:
+
 .. code-block:: python
 
     params = {"categorical": {"color": ["red", "white", "blue"],
@@ -102,22 +102,22 @@ Categorical Factors Only:
              }
 
 Both Numeric and Categorical Factors:
-.. code-block:: python
 
-    params =  {"numeric": {"a":[1,5,2],
-                           "b":[5,10,1],
-                           "c":[3,4,3]
-                          },
-               "categorical": {"color": ["red", "white", "blue"],
-                               "temp": ["super-cold", "balmy"], 
-                               "ice":["lo", "med", "hi"]
-                               }
+.. code-block:: python
+    
+    num = {"a":[1,5,2], "b":[5,10,1], "c":[3,4,3]}
+    cat = {"color": ["red", "white", "blue"],
+           "temp": ["super-cold", "balmy"], 
+           "ice":["lo", "med", "hi"]
+          }
+    params =  {"numeric": num,
+               "categorical": cat
                }
 
 3. Build the Design of Experiments (DOE)
 
 
-    DOE = pycubeDOE(params)
+    DOE = pc.pycubeDOE(params)
 
 4. There is a helper function ['designPoints(DOE)'] that iterates over each row of your DOE. First you will need to assign each design point value to a factor name. Below is an example using `YOUR_MODEL` as a model:
 
