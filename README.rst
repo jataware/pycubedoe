@@ -14,9 +14,9 @@ Overview
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
 
-.. |travis| image:: https://api.travis-ci.com/travis-jat/python-pycubedoe.svg?branch=master
+.. |travis| image:: https://api.travis-ci.com/jataware/pycubedoe.svg?branch=master
     :alt: Travis-CI Build Status
-    :target: https://travis-ci.com/github/travis-jat/python-pycubedoe
+    :target: https://travis-ci.com/github/jataware/pycubedoe
 
 .. |version| image:: https://img.shields.io/pypi/v/pycubedoe.svg
     :alt: PyPI Package latest release
@@ -34,9 +34,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/pycubedoe
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/travis-jat/python-pycubedoe/v0.0.1.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/jataware/pycubedoe/v0.0.1.svg
     :alt: Commits since latest release
-    :target: https://github.com/travis-jat/python-pycubedoe/compare/v0.0.1...master
+    :target: https://github.com/jataware/pycubedoe/compare/v0.0.1...master
 
 
 
@@ -62,7 +62,7 @@ Installation
 
 You can also install the in-development version with::
 
-    pip3 install https://github.com/travis-jat/python-pycubedoe/archive/master.zip
+    pip3 install https://github.com/jataware/pycubedoe/archive/master.zip
 
 
 Documentation

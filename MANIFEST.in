@@ -1,10 +1,12 @@
-include *.rst
-include *.py
-include *.yaml
-include tox.ini
-include .gitignore
+graft docs
+graft src
+graft ci
+graft tests
 
 include .bumpversion.cfg
+include .coveragerc
+include .cookiecutterrc
+include .editorconfig
 
 include AUTHORS.rst
 include CHANGELOG.rst
@@ -12,5 +14,6 @@ include CONTRIBUTING.rst
 include LICENSE
 include README.rst
 
+include tox.ini .travis.yml .appveyor.yml .pre-commit-config.yaml
 
 global-exclude *.py[cod] __pycache__/* *.so *.dylib
