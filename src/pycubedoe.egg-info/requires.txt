@@ -1,0 +1,4 @@
+pandas>=0.24.2
+
+[dev]
+pytest>=3.7

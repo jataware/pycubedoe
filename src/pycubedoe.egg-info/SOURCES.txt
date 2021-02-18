@@ -1,0 +1,10 @@
+README.rst
+setup.py
+src/pycubedoe.py
+src/pycubedoe.egg-info/PKG-INFO
+src/pycubedoe.egg-info/SOURCES.txt
+src/pycubedoe.egg-info/dependency_links.txt
+src/pycubedoe.egg-info/entry_points.txt
+src/pycubedoe.egg-info/not-zip-safe
+src/pycubedoe.egg-info/requires.txt
+src/pycubedoe.egg-info/top_level.txt

@@ -1,0 +1,3 @@
+[console_scripts]
+pycubedoe = pycubedoe.cli:main
+
