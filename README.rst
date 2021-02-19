@@ -55,7 +55,7 @@ Installation
 
 ::
 
-    pip3 install pycubedoe as pc
+    pip3 install pycubedoe
 
 You can also install the in-development version with::
 
