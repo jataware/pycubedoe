@@ -26,10 +26,10 @@ setup(
     version='0.0.1',
     license='LGPL-3.0-or-later',
     description='Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.',
-    long_description='%s\n%s' % (
-        re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
-        re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
-    ),
+    #long_description='%s\n%s' % (
+    #    re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
+    #    re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
+    #),
     author='Travis Hartman',
     author_email='travis@jataware.com',
     url='https://github.com/jataware/pycubedoe',
