@@ -150,7 +150,7 @@ Then run the design points over `YOUR_MODEL` where we call pycubedoe's `designPo
 .. code-block:: python
 
     modelResults = []
-    for designPT in designPoints(DOE):
+    for designPT in pc.designPoints(DOE):
         sim = YOUR_MODEL(designPT)
         modelResults.append(sim)
     print(modelResults) 
