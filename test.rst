@@ -75,33 +75,38 @@ To use the project:
 
     import pycubedoe as pc
 
-2. Create a dictionary of your desired factors and their associated levels. pycubedoe can support both numeric and categorical factors. For each factor, build a dictionary as described below:
+2. Create a dictionary of your desired factors and their associated levels. pycubedoe can support both numeric and categorical factors. For each factor-type, build a dictionary of all your factors under the appropriate dictionary key as shown below::
 
-   For numeric factors:     "factor name": [min Value, max Value, number of desired decimal places]
-   For categorical factors: "factor name": ["list", "of", "categorical", "levels"]
+   For numeric factors: "factor name": [min Value, max Value, number of desired decimal places]
+   
+      For example: If you are interested in exploring the effects of various temperatures from 10 to 15 degrees Celsius on your model, and wish to have two decimals (two significant digits) then your temperature key/value would be: `"temperature":[10,15,2]`
+   
+   For categorical factors: "factor name": ["list", "of", "categorical", "factor", "levels"]
+   
+      For example: If you are interested in exploring the effects of various levels of ice accumulation on your model that are categorized as "lo", "medium", and "high", then your "ice" factor key/value would be: `"ice:["low", "medium", "high"]`
 
-   For each factor-type, build a dictionary of all your factors under the appropriate dictionary key as shown below:
-
-    **Numeric Factors Only**:
+   **Numeric Factors Only**:
 
     .. code-block:: python
 
-    nums = {"rainfall":[1,5,2],"temperature":[10,50,2]}
+    nums = {"rainfall":[1,5,2],"temperature":[10,15,2]}
     cats = None
 
-    **Categorical Factors Only**:
+   **Categorical Factors Only**:
 
     .. code-block:: python
 
     nums = None
-    cats = {"flag": ["red", "white", "blue"],"ice":["lo", "med", "hi"]}
+    cats = {"flag": ["red", "white", "blue"],"ice:["low", "medium", "high"]}
 
-    **Both Numeric and Categorical Factors**:
+   **Both Numeric and Categorical Factors**:
 
     .. code-block:: python
 
-    nums = {"rainfall":[1,5,2],"temperature":[10,50,2]}
-    cats = {"flag": ["red", "white", "blue"],"ice":["lo", "med", "hi"]}
+    nums = {"rainfall":[1,5,2],"temperature":[10,15,2]}
+    cats = {"flag": ["red", "white", "blue"],"ice:["low", "medium", "high"]}
+
+  Note: Assigning `None` to a factor-type not utilized is required.
 
 3. Build the Design of Experiments (DOE)
 
