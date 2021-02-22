@@ -79,17 +79,18 @@ To use the project:
 
    For numeric factors: "factor name": [min Value, max Value, number of desired decimal places]
    
-      For example: If you are interested in exploring the effects of various temperatures from 10 to 15 degrees Celsius on your model, and wish to have two decimals (two significant digits) then your temperature key/value would be: `"temperature":[10,15,2]`
+    For example: If you are interested in exploring the effects of various temperatures from 10 to 15 degrees Celsius on your model, and wish to have two decimals (two significant digits) then your temperature key/value would be: `"temperature":[10,15,2]`
    
    For categorical factors: "factor name": ["list", "of", "categorical", "factor", "levels"]
    
-      For example: If you are interested in exploring the effects of various levels of ice accumulation on your model that are categorized as "lo", "medium", and "high", then your "ice" factor key/value would be: `"ice:["low", "medium", "high"]`
+    For example: If you are interested in exploring the effects of various levels of ice accumulation on your model that are categorized as "lo", "medium", and "high", then your "ice" factor key/value would be: `"ice:["low", "medium", "high"]`
 
    **Numeric Factors Only**:
 
     .. code-block:: python
 
     nums = {"rainfall":[1,5,2],"temperature":[10,15,2]}
+    
     cats = None
 
    **Categorical Factors Only**:
@@ -97,6 +98,7 @@ To use the project:
     .. code-block:: python
 
     nums = None
+    
     cats = {"flag": ["red", "white", "blue"],"ice:["low", "medium", "high"]}
 
    **Both Numeric and Categorical Factors**:
@@ -104,9 +106,10 @@ To use the project:
     .. code-block:: python
 
     nums = {"rainfall":[1,5,2],"temperature":[10,15,2]}
+    
     cats = {"flag": ["red", "white", "blue"],"ice:["low", "medium", "high"]}
 
-  Note: Assigning `None` to a factor-type not utilized is required.
+  **Note: Assigning *None* to a factor-type not utilized is required.**
 
 3. Build the Design of Experiments (DOE)
 
@@ -131,20 +134,20 @@ To use the project:
       ice = designPT[5]
       
       ### DO SOMETHING WITH YOUR DESIGN POINT, for example:
-      if ice == "hi" and temp == "super-cold":
+      if ice == "hi" and temp <= 17.0:
           return round(a*b*c,2)
       else:
           return 0
 
 
-Then run the design points over YOUR_MODEL where we call pycubedoe's designPoints function:
+Then run the design points over `Eaxmple_Function` where we call pycubedoe's designPoints function:
 
 .. code-block:: python
 
     modelResults = []
     for designPT in designPoints(DOE):
-        sim = YOUR_MODEL(designPT)
-        modelResults.append(sim)
+        tempResult = Example_Function(designPT)
+        modelResults.append(tempResult)
     print(modelResults) 
 
 Development
