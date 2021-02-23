@@ -2,7 +2,7 @@
 
 ## Description
 
-pycubedoe generates a design of experiements (DOE) by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor levels. The underling space-filling matrices are provided by the NOLHDesigns_v6.xls: Generating nearly orthogonal Latin Hypercube designs. More information on the NOLHDesigns can be found at: https://nps.edu/web/seed/software-downloads.
+pycubedoe generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. The underling space-filling matrices are provided by the NOLHDesigns_v6.xls: Generating nearly orthogonal Latin Hypercube designs. More information on the NOLHDesigns can be found at: https://nps.edu/web/seed/software-downloads.
 
 
 ## Quick Start
@@ -33,7 +33,6 @@ pycubedoe generates a design of experiements (DOE) by constructing a nearly orth
      
      `[<min factor value = 1>, <max factor value = 5>, <number of significant digits = 2>]`
 
-
    - **Categorical Factors Only Dictionary**:
 
      `categorical = {"flag": ["red", "white", "blue"],...}`
@@ -56,7 +55,7 @@ pycubedoe generates a design of experiements (DOE) by constructing a nearly orth
    
       `DOE = pc.pycubeDOE(numeric = numeric, categorical = categorical)`
 
-   - This function returna a pandas dataframe with user-defined factors and factor-values within a user-defined range.
+   - This function returns a pandas dataframe with user-defined factors and factor-values within a user-defined range.
 
      - Each column is a user-defined factor; either numeric or categorical.
      - Each row is a design point.
