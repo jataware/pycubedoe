@@ -2,7 +2,10 @@
 
 import pandas as pd
 
-### FACTORS
+#######################
+######  FACTORS  ######
+#######################
+
 
 d_seven = {'f4': [6, 2, 3, 4, 13, 17, 11, 10, 9, 12, 16, 15, 14, 5, 1, 7, 8],
            'f5': [17, 5, 8, 11, 16, 6, 4, 15, 9, 1, 13, 10, 7, 2, 12, 14, 3],
@@ -64,7 +67,7 @@ d_twentytwo = {'f2': [32, 115, 58, 90, 1, 91, 51, 74, 4, 127, 7, 119, 62, 97, 34
                'f5': [34, 29, 62, 33, 7, 11, 4, 3, 79, 74, 129, 91, 72, 90, 98, 115, 59, 60, 36, 48, 31, 2, 38, 9, 103, 95, 93, 80, 106, 84, 100, 125, 6, 55, 28, 17, 64, 49, 43, 25, 88, 110, 122, 108, 83, 67, 120, 112, 44, 13, 54, 57, 14, 52, 21, 45, 104, 114, 89, 111, 77, 118, 69, 107, 65, 96, 101, 68, 97, 123, 119, 126, 127, 51, 56, 1, 39, 58, 40, 32, 15, 71, 70, 94, 82, 99, 128, 92, 121, 27, 35, 37, 50, 24, 46, 30, 5, 124, 75, 102, 113, 66, 81, 87, 105, 42, 20, 8, 22, 47, 63, 10, 18, 86, 117, 76, 73, 116, 78, 109, 85, 26, 16, 41, 19, 53, 12, 61, 23],
                'f1': [115, 98, 90, 72, 91, 129, 74, 79, 127, 126, 119, 123, 97, 68, 101, 96, 125, 100, 84, 106, 80, 93, 95, 103, 121, 92, 128, 99, 82, 94, 70, 71, 112, 120, 67, 83, 108, 122, 110, 88, 105, 87, 81, 66, 113, 102, 75, 124, 107, 69, 118, 77, 111, 89, 114, 104, 85, 109, 78, 116, 73, 76, 117, 86, 65, 15, 32, 40, 58, 39, 1, 56, 51, 3, 4, 11, 7, 33, 62, 29, 34, 5, 30, 46, 24, 50, 37, 35, 27, 9, 38, 2, 31, 48, 36, 60, 59, 18, 10, 63, 47, 22, 8, 20, 42, 25, 43, 49, 64, 17, 28, 55, 6, 23, 61, 12, 53, 19, 41, 16, 26, 45, 21, 52, 14, 57, 54, 13, 44]}
 
-d_twentynine = {'f1': [103, 31, 42, 105, 95, 114, 12, 100, 20, 125, 36, 19, 70, 11, 73, 96, 72, 122, 52, 53, 86, 128, 101, 56, 67, 124, 25, 54, 66, 49, 121, 27, 119, 85, 65, 43, 79, 102, 82, 120, 48, 57, 35, 5, 58, 34, 39, 93, 17, 62, 4, 92, 60, 7, 112, 68, 78, 61, 69, 64, 32, 16, 8, 1, 23, 94, 51, 77, 28, 45, 47, 63, 40, 3, 90, 115, 91, 37, 21, 123, 117, 106, 26, 127, 97, 15, 99, 75, 74, 80, 108, 44, 9, 111, 109, 76, 18, 24, 110, 59, 118, 50, 30, 2, 89, 71, 46, 10, 22, 55, 84, 88, 38, 113, 126, 87, 98, 104, 116, 6, 83, 107, 13, 81, 14, 29, 41, 33, 129, 155, 227, 216, 153, 163, 144, 246, 158, 238, 133, 222, 239, 188, 247, 185, 162, 186, 136, 206, 205, 172, 130, 157, 202, 191, 134, 233, 204, 192, 209, 137, 231, 139, 173, 193, 215, 179, 156, 176, 138, 210, 201, 223, 253, 200, 224, 219, 165, 241, 196, 254, 166, 198, 251, 146, 190, 180, 197, 189, 194, 226, 242, 250, 257, 235, 164, 207, 181, 230, 213, 211, 195, 218, 255, 168, 143, 167, 221, 237, 135, 141, 152, 232, 131, 161, 243, 159, 183, 184, 178, 150, 214, 249, 147, 149, 182, 240, 234, 148, 199, 140, 208, 228, 256, 169, 187, 212, 248, 236, 203, 174, 170, 220, 145, 132, 171, 160, 154, 142, 252, 175, 151, 245, 177, 244, 229, 217, 225], 
+d_twentyninepalms = {'f1': [103, 31, 42, 105, 95, 114, 12, 100, 20, 125, 36, 19, 70, 11, 73, 96, 72, 122, 52, 53, 86, 128, 101, 56, 67, 124, 25, 54, 66, 49, 121, 27, 119, 85, 65, 43, 79, 102, 82, 120, 48, 57, 35, 5, 58, 34, 39, 93, 17, 62, 4, 92, 60, 7, 112, 68, 78, 61, 69, 64, 32, 16, 8, 1, 23, 94, 51, 77, 28, 45, 47, 63, 40, 3, 90, 115, 91, 37, 21, 123, 117, 106, 26, 127, 97, 15, 99, 75, 74, 80, 108, 44, 9, 111, 109, 76, 18, 24, 110, 59, 118, 50, 30, 2, 89, 71, 46, 10, 22, 55, 84, 88, 38, 113, 126, 87, 98, 104, 116, 6, 83, 107, 13, 81, 14, 29, 41, 33, 129, 155, 227, 216, 153, 163, 144, 246, 158, 238, 133, 222, 239, 188, 247, 185, 162, 186, 136, 206, 205, 172, 130, 157, 202, 191, 134, 233, 204, 192, 209, 137, 231, 139, 173, 193, 215, 179, 156, 176, 138, 210, 201, 223, 253, 200, 224, 219, 165, 241, 196, 254, 166, 198, 251, 146, 190, 180, 197, 189, 194, 226, 242, 250, 257, 235, 164, 207, 181, 230, 213, 211, 195, 218, 255, 168, 143, 167, 221, 237, 135, 141, 152, 232, 131, 161, 243, 159, 183, 184, 178, 150, 214, 249, 147, 149, 182, 240, 234, 148, 199, 140, 208, 228, 256, 169, 187, 212, 248, 236, 203, 174, 170, 220, 145, 132, 171, 160, 154, 142, 252, 175, 151, 245, 177, 244, 229, 217, 225], 
                 'f2': [227, 103, 153, 42, 144, 95, 158, 12, 133, 20, 239, 36, 247, 70, 162, 73, 136, 72, 205, 52, 130, 86, 202, 101, 134, 67, 204, 25, 209, 66, 231, 121, 173, 119, 215, 65, 156, 79, 138, 82, 201, 48, 253, 35, 224, 58, 165, 39, 196, 17, 166, 4, 251, 60, 190, 112, 197, 78, 194, 69, 242, 32, 257, 8, 164, 23, 181, 51, 213, 28, 195, 47, 255, 40, 143, 90, 221, 91, 135, 21, 152, 117, 131, 26, 243, 97, 183, 99, 178, 74, 214, 108, 147, 9, 182, 109, 234, 18, 199, 110, 208, 118, 256, 30, 187, 89, 248, 46, 203, 22, 170, 84, 145, 38, 171, 126, 154, 98, 252, 116, 151, 83, 177, 13, 229, 14, 225, 41, 129, 31, 155, 105, 216, 114, 163, 100, 246, 125, 238, 19, 222, 11, 188, 96, 185, 122, 186, 53, 206, 128, 172, 56, 157, 124, 191, 54, 233, 49, 192, 27, 137, 85, 139, 43, 193, 102, 179, 120, 176, 57, 210, 5, 223, 34, 200, 93, 219, 62, 241, 92, 254, 7, 198, 68, 146, 61, 180, 64, 189, 16, 226, 1, 250, 94, 235, 77, 207, 45, 230, 63, 211, 3, 218, 115, 168, 37, 167, 123, 237, 106, 141, 127, 232, 15, 161, 75, 159, 80, 184, 44, 150, 111, 249, 76, 149, 24, 240, 59, 148, 50, 140, 2, 228, 71, 169, 10, 212, 55, 236, 88, 174, 113, 220, 87, 132, 104, 160, 6, 142, 107, 175, 81, 245, 29, 244, 33, 217], 
                 'f3': [153, 216, 31, 103, 158, 246, 114, 95, 239, 222, 125, 20, 162, 185, 11, 70, 205, 206, 122, 72, 202, 157, 128, 86, 204, 233, 124, 67, 231, 137, 49, 66, 215, 193, 85, 119, 138, 176, 102, 79, 253, 223, 57, 48, 165, 219, 34, 58, 166, 254, 62, 17, 190, 146, 7, 60, 194, 189, 61, 78, 257, 250, 16, 32, 181, 207, 94, 23, 195, 211, 45, 28, 143, 168, 3, 40, 135, 237, 37, 91, 131, 232, 106, 117, 183, 159, 15, 97, 214, 150, 80, 74, 182, 149, 111, 9, 199, 148, 24, 18, 256, 228, 50, 118, 248, 212, 71, 89, 170, 174, 55, 22, 171, 132, 113, 38, 252, 142, 104, 98, 177, 245, 107, 83, 225, 217, 29, 14, 129, 105, 42, 227, 155, 100, 12, 144, 163, 19, 36, 133, 238, 96, 73, 247, 188, 53, 52, 136, 186, 56, 101, 130, 172, 54, 25, 134, 191, 27, 121, 209, 192, 43, 65, 173, 139, 120, 82, 156, 179, 5, 35, 201, 210, 93, 39, 224, 200, 92, 4, 196, 241, 68, 112, 251, 198, 64, 69, 197, 180, 1, 8, 242, 226, 77, 51, 164, 235, 63, 47, 213, 230, 115, 90, 255, 218, 123, 21, 221, 167, 127, 26, 152, 141, 75, 99, 243, 161, 44, 108, 178, 184, 76, 109, 147, 249, 59, 110, 234, 240, 2, 30, 208, 140, 10, 46, 187, 169, 88, 84, 203, 236, 87, 126, 145, 220, 6, 116, 154, 160, 81, 13, 151, 175, 33, 41, 229, 244], 
                 'f4': [158, 246, 144, 163, 105, 42, 31, 103, 162, 185, 247, 188, 19, 36, 125, 20, 202, 157, 130, 172, 53, 52, 122, 72, 231, 137, 209, 192, 54, 25, 124, 67, 138, 176, 156, 179, 43, 65, 85, 119, 165, 219, 224, 200, 5, 35, 57, 48, 190, 146, 251, 198, 92, 4, 62, 17, 257, 250, 242, 226, 64, 69, 61, 78, 195, 211, 213, 230, 77, 51, 94, 23, 135, 237, 221, 167, 115, 90, 3, 40, 183, 159, 243, 161, 127, 26, 106, 117, 182, 149, 147, 249, 44, 108, 80, 74, 256, 228, 208, 140, 59, 110, 24, 18, 170, 174, 203, 236, 10, 46, 71, 89, 252, 142, 154, 160, 87, 126, 113, 38, 225, 217, 229, 244, 81, 13, 107, 83, 129, 100, 12, 114, 95, 153, 216, 227, 155, 96, 73, 11, 70, 239, 222, 133, 238, 56, 101, 128, 86, 205, 206, 136, 186, 27, 121, 49, 66, 204, 233, 134, 191, 120, 82, 102, 79, 215, 193, 173, 139, 93, 39, 34, 58, 253, 223, 201, 210, 68, 112, 7, 60, 166, 254, 196, 241, 1, 8, 16, 32, 194, 189, 197, 180, 63, 47, 45, 28, 181, 207, 164, 235, 123, 21, 37, 91, 143, 168, 255, 218, 75, 99, 15, 97, 131, 232, 152, 141, 76, 109, 111, 9, 214, 150, 178, 184, 2, 30, 50, 118, 199, 148, 234, 240, 88, 84, 55, 22, 248, 212, 187, 169, 6, 116, 104, 98, 171, 132, 145, 220, 33, 41, 29, 14, 177, 245, 151, 175], 
@@ -94,137 +97,137 @@ d_twentynine = {'f1': [103, 31, 42, 105, 95, 114, 12, 100, 20, 125, 36, 19, 70, 
                 'f28': [62, 65, 114, 50, 150, 90, 38, 20, 94, 75, 27, 2, 10, 89, 48, 105, 249, 158, 145, 172, 186, 213, 142, 257, 146, 154, 236, 143, 235, 250, 209, 228, 36, 102, 52, 76, 13, 34, 55, 46, 44, 3, 88, 92, 64, 37, 12, 139, 165, 161, 254, 127, 124, 247, 149, 188, 177, 163, 141, 199, 244, 147, 126, 181, 190, 240, 198, 191, 187, 200, 175, 155, 197, 202, 185, 205, 195, 233, 211, 179, 39, 91, 5, 106, 78, 35, 123, 80, 69, 66, 29, 28, 24, 31, 6, 17, 160, 232, 226, 133, 148, 136, 237, 157, 218, 107, 217, 239, 171, 251, 176, 159, 96, 118, 85, 42, 84, 120, 74, 51, 54, 130, 33, 43, 16, 57, 121, 15, 129, 196, 193, 144, 208, 108, 168, 220, 238, 164, 183, 231, 256, 248, 169, 210, 153, 9, 100, 113, 86, 72, 45, 116, 1, 112, 104, 22, 115, 23, 8, 49, 30, 222, 156, 206, 182, 245, 224, 203, 212, 214, 255, 170, 166, 194, 221, 246, 119, 93, 97, 4, 131, 134, 11, 109, 70, 81, 95, 117, 59, 14, 111, 132, 77, 68, 18, 60, 67, 71, 58, 83, 103, 61, 56, 73, 53, 63, 25, 47, 79, 219, 167, 253, 152, 180, 223, 135, 178, 189, 192, 229, 230, 234, 227, 252, 241, 98, 26, 32, 125, 110, 122, 21, 101, 40, 151, 41, 19, 87, 7, 82, 99, 162, 140, 173, 216, 174, 138, 184, 207, 204, 128, 225, 215, 242, 201, 137, 243], 
                 'f29': [8, 102, 49, 62, 16, 36, 66, 33, 21, 15, 109, 115, 84, 30, 9, 113, 131, 154, 31, 117, 151, 44, 116, 72, 55, 119, 82, 10, 13, 136, 108, 69, 236, 239, 148, 200, 124, 175, 234, 235, 162, 212, 216, 246, 223, 206, 188, 157, 233, 185, 146, 163, 194, 197, 147, 240, 155, 170, 218, 166, 253, 257, 201, 210, 153, 252, 220, 126, 152, 137, 251, 123, 219, 130, 202, 229, 177, 254, 190, 133, 179, 158, 199, 213, 195, 161, 164, 181, 180, 144, 193, 184, 205, 232, 138, 224, 98, 89, 90, 14, 71, 91, 86, 87, 20, 75, 28, 17, 51, 47, 43, 76, 41, 85, 11, 80, 93, 27, 118, 67, 50, 99, 54, 37, 32, 60, 3, 2, 129, 250, 156, 209, 196, 242, 222, 192, 225, 237, 243, 149, 143, 174, 228, 249, 145, 127, 104, 227, 141, 107, 214, 142, 186, 203, 139, 176, 248, 245, 122, 150, 189, 22, 19, 110, 58, 134, 83, 24, 23, 96, 46, 42, 12, 35, 52, 70, 101, 25, 73, 112, 95, 64, 61, 111, 18, 103, 88, 40, 92, 5, 1, 57, 48, 105, 6, 38, 132, 106, 121, 7, 135, 39, 128, 56, 29, 81, 4, 68, 125, 79, 100, 59, 45, 63, 97, 94, 77, 78, 114, 65, 74, 53, 26, 120, 34, 160, 169, 168, 244, 187, 167, 172, 171, 238, 183, 230, 241, 207, 211, 215, 182, 217, 173, 247, 178, 165, 231, 140, 191, 208, 159, 204, 221, 226, 198, 255, 256]}
 
-# Count total number of params passed
-def countParams(params):
-    total = 0
-    for key in params.keys():
-        total = total + len(params[key])
-    return total 
 
-# Convert any categorical variables to integers
+
+#######################
+###### FUNCTIONS ######
+#######################
+
+
 def cat_to_numeric(cats):
+    """Convert categorical number to number"""
     params_cat = {}
     for key in cats.keys():
         tempCatCount = len(cats[key])
-        tempParam = [1,tempCatCount,0]
+        tempParam = [1, tempCatCount, 0]
         params_cat[key] = tempParam
-    return params_cat 
 
-# Convert baseline factor levels to user-defined factor ranges
+    return params_cat
+
+
 def transform_base(x, lo, hi, dc, numRuns):
+    """Lambda function to convert baseline factor levels to user-defined factor ranges
+
+    x = baseline factor
+    lo = min value of factor
+    hi = max value of factor
+    dc = number of significat digits (decimals) desired
+    numRuns = number of design points for chosen number of factors
+    """
+
     if dc == 0:
-        return int(round(lo + ((x-1)*(hi-lo)/numRuns),dc))
+        return int(round(lo + ((x - 1) * (hi - lo) / numRuns), dc))
     else:
-        return round(lo + ((x-1)*(hi-lo)/numRuns),dc)
+        return round(lo + ((x - 1) * (hi - lo) / numRuns), dc)
 
-# From the base factors, build df and rename columns to user-defined names
-def pycubeDOE(params):
-    
-    numParams = countParams(params)
+
+def pycubeDOE(numeric=None, categorical=None):
+    """
+    Description
+    -----------
+    Return a pandas dataframe with user-defined factors and factor-values within a user-defined range.
+
+    - Each column is a user-defined factor; either numeric or categorical.
+    - Each row is a design point.
+    - In aggregate, all design points form a Nearly-Orthogonal Latin Hypercube
+    that efficiently explore a parameter space while reducing the computational load.
+
+    Parameters
+    ----------
+    numeric: dictionary of all desired numeric factors. The value of each key is a list; see examples.
+    categorical: dictionary of all desired categorical factors; The value for each key is a list; see examples
+
+    Examples
+    --------
+    Example numeric dictionary:
+        numeric = {"a":[1,5,2],"b":[10,50,2],...}
+        where "a" is the factor label and the list is: ["min factor value", "max factor value", "number of significant digits"]
+
+    Example categorical dictionary:
+        categorical = {"flag": ["red", "white", "blue"],...}
+        where "flag" is the factor label and the list is: ["a", list", "of", "all", categorical", "levels"]
+
+    """
+    # Count total number of num/cat factors
+    numFactors = 0
+    if numeric != None:
+        numFactors += len(numeric)
+
+    if categorical != None:
+        numFactors += len(categorical)
+
     # Get shape of DOE
-    if numParams > 29:
+    if numFactors > 29:
         print("Number of factors exceeds maximum of 29")
-        return "None"
+        return None
     else:
-        if numParams > 22 and numParams <= 29:
-            res = "29"
-            df = pd.DataFrame(d_twentynine) 
-        if numParams > 16 and numParams <= 22:
-            res = "22"      
-            df = pd.DataFrame(d_twentytwo) 
-        if numParams > 11 and numParams <= 16:
-            res = "16"     
-            df = pd.DataFrame(d_sixteen) 
-        if numParams > 7 and numParams <= 11:
-            res = "11"      
-            df = pd.DataFrame(d_eleven)     
-        if numParams <= 7:
-            res = "7"
-            df = pd.DataFrame(d_seven)  
+        if numFactors > 22 and numFactors <= 29:
+            df = pd.DataFrame(d_twentynine)
+        if numFactors > 16 and numFactors <= 22:
+            df = pd.DataFrame(d_twentytwo)
+        if numFactors > 11 and numFactors <= 16:
+            df = pd.DataFrame(d_sixteen)
+        if numFactors > 7 and numFactors <= 11:
+            df = pd.DataFrame(d_eleven)
+        if numFactors <= 7:
+            df = pd.DataFrame(d_seven)
 
-        # check for categorical/numeric factors:
-        cats = params.get("categorical", "None")
-        nums = params.get("numeric", "None")
-        
-        # Both numeric and categorical 
-        if nums != "None" and cats != "None":
-            tx_cats = cat_to_numeric(cats)
-            paramsAll = {**nums, **tx_cats}
-        
+        # Both numeric and categorical
+        if numeric != None and categorical != None:
+            tx_cats = cat_to_numeric(categorical)
+            factorsAll = {**numeric, **tx_cats}
+
         # Numeric only
-        if nums != "None" and cats == "None":
-            paramsAll = nums
-        
+        if numeric != None and categorical == None:
+            factorsAll = numeric
+
         # Categorical Only
-        if nums == "None" and cats != "None":
-            paramsAll = cat_to_numeric(cats)
-        
-        # Resize and rename cols to match user factor names/size
-        dropCol = len(df.columns) - len(paramsAll)
+        if numeric == None and categorical != None:
+            factorsAll = cat_to_numeric(categorical)
+
+        # Resize and rename cols
+        dropCol = len(df.columns) - len(factorsAll)
         if dropCol > 0:
             df.drop(df.columns[-dropCol:], axis=1, inplace=True)
 
         # Rename to column headers to param keys
-        names  = pd.DataFrame(paramsAll).columns.to_series()
+        names = pd.DataFrame(factorsAll).columns.to_series()
         df.columns = names
 
         # Convert base numbers to user ranges
-        numRuns = df.shape[0]-1
+        numRuns = df.shape[0] - 1
         df_runs = df.copy(deep=True)
 
-        for key in paramsAll.keys():
-            lo = paramsAll[key][0]
-            hi = paramsAll[key][1]
-            dc = paramsAll[key][2]
+        for key in factorsAll.keys():
+            lo = factorsAll[key][0]
+            hi = factorsAll[key][1]
+            dc = factorsAll[key][2]
 
-            df_runs[key] = df_runs[key].apply(lambda x: transform_base(x, lo, hi, dc, numRuns))
-        
-        # map integer for cats back to cat
-        if cats != "None":
-            for key in cats.keys():
-                df_runs[key] = df_runs[key].apply(lambda x: cats[key][x-1])
+            df_runs[key] = df_runs[key].apply(
+                lambda x: transform_base(x, lo, hi, dc, numRuns)
+            )
 
+        # map int for cats back to cat
+        if categorical != None:
+            for key in categorical.keys():
+                df_runs[key] = df_runs[key].apply(lambda x: categorical[key][x - 1])
         return df_runs
 
+
 def designPoints(DOE):
-    '''
-    Parse the DOE row-by-row to present each design point for your model
-    '''
-    dp_list=[]
+    """Parse the DOE row-by-row to present each design point for your model"""
+    dp_list = []
     for i in range(DOE.shape[0]):
         dp = list(DOE.iloc[i])
         dp_list.append(dp)
     return dp_list
-
-
-'''
-def YOUR_MODEL(designPT):
-
-    Example on how to parse the design point from the DOE and implement some logic
-    
-
-    #Assign your variable values from the DOE design point
-    a = designPT[0]
-    b = designPT[1]
-    c = designPT[2]
-    color = designPT[3]
-    temp = designPT[4]
-    ice = designPT[5]
-    
-    ### DO SOMETHING WITH YOUR DESIGN POINT, for example:
-    if ice == "hi" and temp == "super-cold":
-        return round(a*b*c,2)
-    else:
-        return 0
-
-# Build DOE
-#DOE = pycubeDOE(params)
-
-
-modelResults = []
-for designPT in designPoints(DOE):
-    sim = YOUR_MODEL(designPT)
-    modelResults.append(sim)
-print(modelResults)    
-'''
-

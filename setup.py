@@ -13,6 +13,10 @@ from setuptools import find_packages
 from setuptools import setup
 
 
+with open(“README.md”, “r”) as fh:
+    long_description = fh.read()
+
+
 def read(*names, **kwargs):
     with io.open(
         join(dirname(__file__), *names),
@@ -23,13 +27,10 @@ def read(*names, **kwargs):
 
 setup(
     name='pycubedoe',
-    version='0.0.1',
+    version='0.0.2',
     license='LGPL-3.0-or-later',
     description='Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.',
-    #long_description='%s\n%s' % (
-    #    re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
-    #    re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
-    #),
+    long_description=long_description,
     author='Travis Hartman',
     author_email='travis@jataware.com',
     url='https://github.com/jataware/pycubedoe',

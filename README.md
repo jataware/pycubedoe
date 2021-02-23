@@ -67,49 +67,29 @@ pycubedoe generates a design of experiments (DOE) by constructing a Nearly Ortho
 
 5. There is a helper function `pc.designPoints(DOE)` that iterates over each design point (row) of your DOE dataframe. First you will need to assign each design point value to a factor name. Below is an example using `exampleRun` as the model:
 
-	    def exampleRun(designPT):
-	      #Assign your variable values from the DOE design point
-	      a = designPT[0]
-	      flag = designPT[1]
-	      
-	      ### DO SOMETHING WITH YOUR DESIGN POINT, for example:
-	      if flag == "red" and a <= 2.5:
-	          return round(a*a,2)
-	      else:
-	          return 0
 
+	```
+  def exampleRun(designPT):
+      #Assign your variable values from the DOE design point
+      a = designPT[0]
+      flag = designPT[1]
+      ### DO SOMETHING WITH YOUR DESIGN POINT, for example:
+      if flag == "red" and a <= 2.5:
+          return round(a*a,2)
+      else:
+          return 0
+  ```
 
 Then run the design points over `exampleRun` where we call pycubedoe's `pc.designPoints` function:
-   
+    
+    ```
     modelResults = []
     for designPT in pc.designPoints(DOE):
         sim = exampleRun(designPT)
         modelResults.append(sim)
     print(modelResults) 
+    ```
 
 ## License:
 
-GNU Lesser General Public License v3 or later (LGPLv3+) 
-
-## Development
-
-To run all the tests run::
-
-    tox
-
-Note, to combine the coverage data from all the tox environments run:
-
-.. list-table::
-    :widths: 10 90
-    :stub-columns: 1
-
-    - - Windows
-      - ::
-
-            set PYTEST_ADDOPTS=--cov-append
-            tox
-
-    - - Other
-      - ::
-
-            PYTEST_ADDOPTS=--cov-append tox
+GNU Lesser General Public License v3 or later (LGPLv3+)
