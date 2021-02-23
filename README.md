@@ -38,7 +38,7 @@ pycubedoe generates a design of experiements (DOE) by constructing a nearly orth
 
      `categorical = {"flag": ["red", "white", "blue"],...}`
 
-    where `flag` is the factor label and the list is: 
+      where `flag` is the factor label and the list is: 
     
      `["a", list", "of", "all", categorical", "levels"]`
 
@@ -50,21 +50,21 @@ pycubedoe generates a design of experiements (DOE) by constructing a nearly orth
 
 4. Build the Design of Experiments (DOE):
 
- - Default: `pc.pycubeDOE(numeric = None, categorical = None)`
+   - Default: `pc.pycubeDOE(numeric = None, categorical = None)`
    
- - Assign your pre-built factor-type dictionaries:
+   - Assign your pre-built factor-type dictionaries:
    
-   `DOE = pc.pycubeDOE(numeric = numeric, categorical = categorical)`
+    `DOE = pc.pycubeDOE(numeric = numeric, categorical = categorical)`
 
- - This function returna a pandas dataframe with user-defined factors and factor-values within a user-defined range.
+   - This function returna a pandas dataframe with user-defined factors and factor-values within a user-defined range.
 
-   - Each column is a user-defined factor; either numeric or categorical.
-   - Each row is a design point.
-   - In aggregate, all design points form a Nearly-Orthogonal Latin Hypercube that efficiently explores the parameter space while reducing the computational load.
+     - Each column is a user-defined factor; either numeric or categorical.
+     - Each row is a design point.
+     - In aggregate, all design points form a Nearly-Orthogonal Latin Hypercube that efficiently explores the parameter space while reducing the computational load.
 
-   **NOTE**: for factor-types *not* used, you must assign it a value of `None`. 
+     **NOTE**: for factor-types *not* used, you must assign it a value of `None`. 
    
-      For example: `DOE = pc.pycubeDOE(numeric = None, categorical = categorical)`   
+       For example: `DOE = pc.pycubeDOE(numeric = None, categorical = categorical)`   
 
 5. There is a helper function `pc.designPoints(DOE)` that iterates over each design point (row) of your DOE dataframe. First you will need to assign each design point value to a factor name. Below is an example using `exampleRun` as the model:
 
