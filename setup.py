@@ -4,6 +4,7 @@
 import io
 import re
 from glob import glob
+from os import path
 from os.path import basename
 from os.path import dirname
 from os.path import join
@@ -13,24 +14,18 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-with open(“README.md”, “r”) as fh:
-    long_description = fh.read()
 
-
-def read(*names, **kwargs):
-    with io.open(
-        join(dirname(__file__), *names),
-        encoding=kwargs.get('encoding', 'utf8')
-    ) as fh:
-        return fh.read()
-
+wrkDir = path.abspath(path.dirname(__file__))
+with open(path.join(wrkDir, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 setup(
     name='pycubedoe',
-    version='0.0.2',
+    version='0.0.3',
     license='LGPL-3.0-or-later',
     description='Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     author='Travis Hartman',
     author_email='travis@jataware.com',
     url='https://github.com/jataware/pycubedoe',
@@ -40,7 +35,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     classifiers=[
-        # complete classifier list: http://pypi.python.org/pypi?%3Aaction=list_classifiers
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
@@ -52,12 +46,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
-        # uncomment if you test on these interpreters:
-        # 'Programming Language :: Python :: Implementation :: IronPython',
-        # 'Programming Language :: Python :: Implementation :: Jython',
-        # 'Programming Language :: Python :: Implementation :: Stackless',
         'Topic :: Utilities',
     ],
     project_urls={
@@ -74,9 +63,5 @@ setup(
     setup_requires=[
         'pytest-runner',
     ],
-    #entry_points={
-    #    'console_scripts': [
-    #        'pycubedoe = pycubedoe.cli:main',
-    #    ]
-    #},
+
 )

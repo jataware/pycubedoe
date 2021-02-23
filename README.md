@@ -11,9 +11,11 @@ pycubedoe generates a design of experiments (DOE) by constructing a Nearly Ortho
 
     `pip3 install pycubedoe`
 
+
 2. Import the package:
 
     `import pycubedoe as pc`
+
 
 3. Create a dictionary of your desired factors and their associated levels. pycubedoe can support both numeric and categorical factor-types. For each factor-type, build a dictionary as described below:
 
@@ -33,6 +35,7 @@ pycubedoe generates a design of experiments (DOE) by constructing a Nearly Ortho
      
      `[<min factor value = 1>, <max factor value = 5>, <number of significant digits = 2>]`
 
+
    - **Categorical Factors Only Dictionary**:
 
      `categorical = {"flag": ["red", "white", "blue"],...}`
@@ -41,11 +44,14 @@ pycubedoe generates a design of experiments (DOE) by constructing a Nearly Ortho
     
      `["a", list", "of", "all", categorical", "levels"]`
 
+
    - **Both Numeric and Categorical Factors, as seen above**:
 
      `numeric = {"a":[1,5,2],...}`
 
      `categorical = {"flag": ["red", "white", "blue"],...}`
+
+
 
 4. Build the Design of Experiments (DOE):
 
@@ -69,25 +75,25 @@ pycubedoe generates a design of experiments (DOE) by constructing a Nearly Ortho
 
 
 ```
-  def exampleRun(designPT):
-      #Assign your variable values from the DOE design point
-      a = designPT[0]
-      flag = designPT[1]
-      ### DO SOMETHING WITH YOUR DESIGN POINT, for example:
-      if flag == "red" and a <= 2.5:
-          return round(a*a,2)
-      else:
-          return 0
-  ```
-
-Then run the design points over `exampleRun` where we call pycubedoe's `pc.designPoints` function:
-    
+def exampleRun(designPT):
+    #Assign your variable values from the DOE design point
+    a = designPT[0]
+    flag = designPT[1]
+    ### DO SOMETHING WITH YOUR DESIGN POINT, for example:
+    if flag == "red" and a <= 2.5:
+        return round(a*a,2)
+    else:
+        return 0
 ```
-    modelResults = []
-    for designPT in pc.designPoints(DOE):
-        sim = exampleRun(designPT)
-        modelResults.append(sim)
-    print(modelResults) 
+
+  Then run the design points over `exampleRun` where we call pycubedoe's `pc.designPoints` function:
+
+```
+modelResults = []
+for designPT in pc.designPoints(DOE):
+    sim = exampleRun(designPT)
+    modelResults.append(sim)
+print(modelResults) 
 ```
 
 ## Acknowledgments
