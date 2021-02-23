@@ -90,6 +90,22 @@ Then run the design points over `exampleRun` where we call pycubedoe's `pc.desig
     print(modelResults) 
 ```
 
+## Acknowledgments
+The full designs for up to 22 factors are from Tom Cioppa's 2002 PhD dissertation (2002).  For ease of application, we use a slightly different column order for designs with fewer factors.  The 29-factor design was provided by Andy Hernandez.  For more details about the properties or application of these designs, see 
+
+  Cioppa, T. M. and T. W. Lucas.  2007.  Efficient nearly orthogonal and space-filling Latin hypercubes.
+  Technometrics 49(1):  45-55.
+
+  Kleijnen, J. P. C., S. M. Sanchez, T. W. Lucas, and T. M. Cioppa.  A user's guide to the brave new world of
+  designing simulation experiments.  INFORMS Journal on Computing 17(3): 263-289.
+
+For more information:
+Links to handouts, papers, presentations, and examples that you may find useful will be maintained at http://harvest.nps.edu, along with future updates of this worksheet.  You can also contact the author at ssanchez@nps.edu developed by Susan M. Sanchez, January 2004. Version 6: March 2015.
+
 ## License:
 
 GNU Lesser General Public License v3 or later (LGPLv3+)
+
+Copyright (c)  2021  Travis Hartman
+
+Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled "GNU Free Documentation License".
