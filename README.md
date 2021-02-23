@@ -17,36 +17,36 @@ pycubedoe generates a design of experiements (DOE) by constructing a nearly orth
 
 3. Create a dictionary of your desired factors and their associated levels. pycubedoe can support both numeric and categorical factor-types. For each factor-type, build a dictionary as described below:
 
-  **In general**:
+    **In general**:
 
-   - For numeric factors:     {"factor name": [min Value, max Value, number of desired decimal places],...}
+    - For numeric factors:     {"factor name": [min Value, max Value, number of desired decimal places],...}
    
-   - For categorical factors: {"factor name": ["list", "of", "categorical", "levels"],...}
+    - For categorical factors: {"factor name": ["list", "of", "categorical", "levels"],...}
 
-  **Example Parameter Dictionaries**:
+   **Example Parameter Dictionaries**:
 
-  - **Numeric Factors Only Dictionary**:
+   - **Numeric Factors Only Dictionary**:
 
-    `numeric = {"a":[1,5,2],...}`
+     `numeric = {"a":[1,5,2],...}`
 
      where `a` is the factor label and the list is: 
      
      `[<min factor value = 1>, <max factor value = 5>, <number of significant digits = 2>]`
 
 
-  - **Categorical Factors Only Dictionary**:
+   - **Categorical Factors Only Dictionary**:
 
-    `categorical = {"flag": ["red", "white", "blue"],...}`
+     `categorical = {"flag": ["red", "white", "blue"],...}`
 
     where `flag` is the factor label and the list is: 
     
-    `["a", list", "of", "all", categorical", "levels"]`
+     `["a", list", "of", "all", categorical", "levels"]`
 
-  - **Both Numeric and Categorical Factors, as seen above**:
+   - **Both Numeric and Categorical Factors, as seen above**:
 
-    `numeric = {"a":[1,5,2],...}`
+     `numeric = {"a":[1,5,2],...}`
 
-    `categorical = {"flag": ["red", "white", "blue"],...}`
+     `categorical = {"flag": ["red", "white", "blue"],...}`
 
 4. Build the Design of Experiments (DOE):
 
