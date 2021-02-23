@@ -54,7 +54,7 @@ pycubedoe generates a design of experiements (DOE) by constructing a nearly orth
    
    - Assign your pre-built factor-type dictionaries:
    
-    `DOE = pc.pycubeDOE(numeric = numeric, categorical = categorical)`
+      `DOE = pc.pycubeDOE(numeric = numeric, categorical = categorical)`
 
    - This function returna a pandas dataframe with user-defined factors and factor-values within a user-defined range.
 
