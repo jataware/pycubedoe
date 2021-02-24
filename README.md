@@ -1,12 +1,10 @@
 # pycubedoe
 
-## Description
-
 pycubedoe generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. The underling space-filling matrices are provided by the NOLHDesigns_v6.xls spreadsheet: Generating nearly orthogonal Latin Hypercube designs. More information on the NOLHDesigns can be found at: https://nps.edu/web/seed/software-downloads.
 
 Each row of the DOE is a design point that is a point value inclusive to the user-assigned parameter ranges. In turn, instantiating a model run over each design point constitutes a metamodel. This approach allows for the simple and quick exploration of the effects of varying parameter values on your model of choice through analysis of the metamodel results.
 
-A note a design points:
+A note on design points:
 
 The number of design points is dictated by the number of factors chosen. Below is table detailing the number of design points that will be generated for your DOE:
 
@@ -74,7 +72,7 @@ The number of design points is dictated by the number of factors chosen. Below i
    
       `DOE = pc.pycubeDOE(numeric = numeric, categorical = categorical)`
 
-   - This function returns a pandas dataframe with user-defined factors and factor-values within a user-defined range.
+   - `pc.pycubeDOE()` returns a dataframe with user-defined factors and factor-values for user-defined ranges.
 
      - Each column is a user-defined factor; either numeric or categorical.
      - Each row is a design point.

@@ -1,3 +1,9 @@
+## 0.1.3 (February 23, 2021)
+  - fix typo
+
+## 0.1.2 (February 23, 2021)
+  - format readme
+
 ## 0.1.1 (February 23, 2021)
   - added number of design points per number factors
 

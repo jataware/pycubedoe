@@ -21,7 +21,7 @@ with open(path.join(wrkDir, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='pycubedoe',
-    version='0.1.1',
+    version='0.1.3',
     license='LGPL-3.0-or-later',
     description='Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.',
     long_description=long_description,
