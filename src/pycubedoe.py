@@ -223,9 +223,78 @@ def pycubeDOE(numeric=None, categorical=None):
                 df_runs[key] = df_runs[key].apply(lambda x: categorical[key][x - 1])
         return df_runs
 
+def runModel(DOE, model):
+    """
+    Description: 
+      Instantiate and run your model for each design point.
+
+    Parameters:
+      DOE: pandas dataframe of user factors (columns) with NOLH design points (rows)
+      model: any user provided model
+
+    Usage:
+      For the "model" parameter, do not provide the usually required parameters to run the model. 
+      Strictly enter the name of the function without any arguments. The variable names and the
+      associated design-point values are automatically derived from the DOE dataframe.
+    """
+    
+    # initialize
+    result = []
+    DOE_T = DOE.T
+    varNames = tuple(DOE_T[0].index)
+    
+    # For each design-point...
+    for i in range(DOE.shape[0]):
+
+        #...create a dictionary where key=variable name and value= variable value
+        varDict = {}
+        for varName in varNames:
+            varDict[varName] = DOE_T[i][varNames.index(varName)]
+
+        #...and for each key/value pair in new varDict, assign the variable a value 
+        for key,val in varDict.items():
+            if type(val) == str:
+                exec(f'{key} = "{val}"',globals())
+
+            else:    
+                exec(f'{key} = {val}',globals())       
+
+            print(f'Running model over design point {i+1}', end="\r")
+            
+            #...and finally instantiate and run the model over the deisgn point
+            res = model() 
+
+        result.append(res) 
+
+    return result
+
+def exampleModel():
+    '''
+    Example "model" to illustrate how to parse the design point over the DOE design points
+    
+    Set-up:
+    nums = {"rainfall":[1,5,2],"temperature":[10,15,2]}
+    cats = {"flag": ["red", "white", "blue"],"ice":["low", "medium", "high"]}
+    DOE = pc.pycubeDOE(numeric=nums, categorical=cats)
+
+    test = runModel(DOE, exampleModel)
+    print(test)
+    '''
+    ### Nonsense logic...
+    if ice == "medium" and temperature < 14.0:
+        return round(rainfall*temperature,2)
+    else:
+        return "Fly Navy"
 
 def designPoints(DOE):
-    """Parse the DOE row-by-row to present each design point for your model"""
+    """
+    Description: Parse the DOE row-by-row to present each design point for your model. 
+    See README for how to assign your bespoke variables.
+
+    Parameter:
+    DOE: pandas dataframe of user factors (columns) with NOLH design points (rows)
+
+    """
     dp_list = []
     for i in range(DOE.shape[0]):
         dp = list(DOE.iloc[i])
