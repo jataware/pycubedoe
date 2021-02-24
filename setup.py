@@ -21,7 +21,7 @@ with open(path.join(wrkDir, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='pycubedoe',
-    version='0.0.4',
+    version='0.1.1',
     license='LGPL-3.0-or-later',
     description='Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.',
     long_description=long_description,
@@ -51,7 +51,7 @@ setup(
     ],
     project_urls={
 
-        'Changelog': 'https://github.com/jataware/pycubedoe/blob/master/CHANGELOG.rst',
+        'Changelog': 'https://github.com/jataware/pycubedoe/blob/master/CHANGELOG.md',
         'Issue Tracker': 'https://github.com/jataware/pycubedoe/issues',
     },
     keywords=['design of experiements', 'DOE', 'hypercube', 'latin hypercube', 'design point'],

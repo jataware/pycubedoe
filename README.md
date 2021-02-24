@@ -4,11 +4,12 @@
 
 pycubedoe generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. The underling space-filling matrices are provided by the NOLHDesigns_v6.xls spreadsheet: Generating nearly orthogonal Latin Hypercube designs. More information on the NOLHDesigns can be found at: https://nps.edu/web/seed/software-downloads.
 
-Each row of the DOE is a design point that is a point value inclusive to the user-assigned parameter ranges. In turn, instantiating a model run over each design point constitutes a metamodel. This approach allows for the simple and quick exploraton of the effects of varying parameter values on your model of choice through analysis of the metamodel results.
+Each row of the DOE is a design point that is a point value inclusive to the user-assigned parameter ranges. In turn, instantiating a model run over each design point constitutes a metamodel. This approach allows for the simple and quick exploration of the effects of varying parameter values on your model of choice through analysis of the metamodel results.
 
 A note a design points:
 
-The number of design points is dictacted by the number of factors chosen. Below is table detailing the number of design points that will be generated for your DOE:
+The number of design points is dictated by the number of factors chosen. Below is table detailing the number of design points that will be generated for your DOE:
+
 
 | Number of Factors           | Number of Design Points (rows)  |
 | --------------------------- | ------------------------------- |
@@ -17,8 +18,7 @@ The number of design points is dictacted by the number of factors chosen. Below 
 |        [12, 16]             |          56                     |
 |        [17, 22]             |          129                    |
 |        [23, 29]             |          257                    |
-|        [30, inf]           | None, too many factors!          |
-
+|        [30, inf]            | None, too many factors!         |
 
 ## Quick Start
 
@@ -30,7 +30,6 @@ The number of design points is dictacted by the number of factors chosen. Below 
 2. Import the package:
 
     `import pycubedoe as pc`
-
 
 3. Create a dictionary of your desired factors and their associated levels. pycubedoe can support both numeric and categorical factor-types. For each factor-type, build a dictionary as described below:
 
@@ -67,7 +66,6 @@ The number of design points is dictacted by the number of factors chosen. Below 
      `categorical = {"flag": ["red", "white", "blue"],...}`
 
 
-
 4. Build the Design of Experiments (DOE):
 
    - Default: `pc.pycubeDOE(numeric = None, categorical = None)`
@@ -98,7 +96,7 @@ def exampleRun(designPT):
     if flag == "red" and a <= 2.5:
         return round(a*a,2)
     else:
-        return 0
+        return "Fly Navy"
 ```
 
   Then run the design points over `exampleRun` where we call pycubedoe's `pc.designPoints` function:
@@ -112,6 +110,7 @@ print(modelResults)
 ```
 
 ## Acknowledgments
+
 The full designs for up to 22 factors are from Tom Cioppa's 2002 PhD dissertation (2002).  For ease of application, we use a slightly different column order for designs with fewer factors.  The 29-factor design was provided by Andy Hernandez.  For more details about the properties or application of these designs, see 
 
   Cioppa, T. M. and T. W. Lucas.  2007.  Efficient nearly orthogonal and space-filling Latin hypercubes.
