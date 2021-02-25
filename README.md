@@ -119,7 +119,7 @@ print(modelResults)
 
 ## Vignette:
 
-Problem: You are a submarine captain and wish to transit the Straits of Gibraltar undetected. Only two factors determine whether or not you will be detected: speed (in knots) and depth (in meters).  Your submarine is capable of making up to 10 knots underwater and can descend to a maximum depth of 100 meters. 
+Problem: You are a submarine captain and wish to transit an area undetected. Only two factors determine whether or not you will be detected: speed (in knots) and depth (in meters).  Your submarine is capable of making up to 10 knots underwater and can descend to a maximum depth of 100 meters. 
 
 You are provided with two models, `probDetect_SPEED` and `probDetect_DEPTH`, that predict the probability of detection for various speeds and depths.
 
