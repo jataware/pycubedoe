@@ -175,15 +175,16 @@ From the plot we can see to minimize the probability of detection, the captain s
 
 ## Acknowledgments
 
-The full designs for up to 22 factors are from Tom Cioppa's 2002 PhD dissertation (2002).  For ease of application, we use a slightly different column order for designs with fewer factors.  The 29-factor design was provided by Andy Hernandez.  For more details about the properties or application of these designs, see 
+The underlying code to generate the DOE was provided by NOLHDesign_v6.xls spreadsheet provided under a GNU Lesser General Public License and developed by Susan M. Sanchez, January 2004. Version 6: March 2015:
+
+  Sanchez, S. M.  2015.  NOLHdesigns spreadsheet.  Available online via http://harvest.nps.edu/ accessed 02/15/2021
+
+The full designs for up to 22 factors are from Tom Cioppa's 2002 PhD dissertation (2002). The 29-factor design was provided by Andy Hernandez.  For more details about the properties or application of these designs, see 
 
   Cioppa, T. M. (2002) Efficient Nearly Orthogonal and Space-filling Experimental Design for High-Dimensional Compex Models. (https://apps.dtic.mil/dtic/tr/fulltext/u2/a406957.pdf.
 
   Kleijnen, J. P. C., S. M. Sanchez, T. W. Lucas, and T. M. Cioppa.  A user's guide to the brave new world of
   designing simulation experiments.  INFORMS Journal on Computing 17(3): 263-289.
-
-For more information:
-Links to handouts, papers, presentations, and examples that you may find useful will be maintained at http://harvest.nps.edu, along with future updates of this worksheet.  You can also contact the author at ssanchez@nps.edu developed by Susan M. Sanchez, January 2004. Version 6: March 2015.
 
 ## License:
 
