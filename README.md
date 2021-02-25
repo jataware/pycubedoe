@@ -1,12 +1,22 @@
 # pycubedoe
 
-pycubedoe generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. The underling space-filling matrices are provided by the NOLHDesigns_v6.xls spreadsheet: Generating nearly orthogonal Latin Hypercube designs. More information on the NOLHDesigns can be found at: https://nps.edu/web/seed/software-downloads.
+`pycubedoe` generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. 
 
-Each row of the DOE is a design point that is a point value inclusive to the user-assigned parameter ranges. In turn, instantiating a model run over each design point constitutes a metamodel. This approach allows for the simple and quick exploration of the effects of varying parameter values on your model of choice through analysis of the metamodel results.
+Terminology:
+
+  - **Factor**: Independent variables of a model or experiment.
+  - **Level**: A specific factor value or factor setting.
+  - **DOE**: A method to evaluate the effects of various factor levels on a model or experiment.
+  - **Design Point**: A subset of the DOE where each row of the design matrix is a design point. Each factor in the design point is assigned a unique level inclusive to a pre-defined range.
+  - **Metamodel**: The result of instantiating a model run over each design point. Through analysis, a metamodel can provide insights into the model’s behavior.
+
+A “good” DOE will have space-filling properties with design points that are “distributed throughout the entire experimental region. This permits a greater opportunity to identify contours that define regions where interesting behavior occurs” [Cioppa, 23]. While there are several DOE classes such as full and fractional factorials, or response surface analysis, this package leverages the NOLH technique that allows for the efficient sampling of large design spaces. 
+
+The NOLH design improves upon Latin Hypercube Techniques (implemented by the pyDOE package which assigns levels randomly) by generating nearly orthogonal design points with a  maximum pairwise correlation no greater than 0.03 [Cioppa, 23]. By eliminating or minimizing the correlation, the NOLH DOE “enhances our ability to analyze and estimate as many effects [and] interactions…as possible” [Cioppa, 21]. NOLH design also reduces the computational load requirements when compared to other DOE design techniques. This allows for faster, yet still effective, exploration of the design space.
 
 A note on design points:
 
-The number of design points is dictated by the number of factors chosen. Below is table detailing the number of design points that will be generated for your DOE:
+`pycubedoe` allows for both numeric and categorical factors. The number of design points is dictated by the total number of factors, both numeric and categorical. Below is table detailing the number of design points that will be generated based on the number of factors:
 
 
 | Number of Factors           | Number of Design Points (rows)  |
@@ -106,6 +116,60 @@ for designPT in pc.designPoints(DOE):
     modelResults.append(sim)
 print(modelResults) 
 ```
+
+## Vignette:
+
+Problem: You are a submarine captain and wish to transit the Straits of Gibraltar undetected. Only two factors determine whether or not you will be detected: speed (in knots) and depth (in meters).  Your submarine is capable of making up to 10 knots underwater and can descend to a maximum depth of 100 meters. 
+
+You are provided with two models that predict the probability of detection for various speeds and depths: What speed and depth should you make your transit?
+
+First, bring your own model for the analysis. In this vignette there is a `detect` model where `probDetect_SPEED` and `probDetect_DEPTH` are separate functions that predict the probability of detection based on either speed or depth):
+
+```
+def detect(designPT):
+    
+    speed = designPT[0]
+    depth = designPT[1]
+    
+    #Calculate probability "at least one detection happens"
+    P_speed = 1 - probDetect_SPEED(speed)
+    P_depth = 1 - probDetect_DEPTH(depth)
+    
+    P_detect = 1 - (P_speed * P_depth)
+    return P_detect
+```
+
+Second, generate your DOE:
+
+```
+speed = [0,10,1]   # knots
+depth = [0,100,0]  # meters
+
+nums = {"speed":speed, "depth": depth}
+cats = None
+
+DOE = pc.pycubeDOE(nums,cats)
+```
+
+Then, run your model over each design point in the DOE:
+
+```
+modelResults = []
+for designPT in pc.designPoints(DOE):
+    sim = detect(designPT)
+    modelResults.append(sim)
+```
+
+Finally, analyze the results. For this analysis, the captain told his analyst to categorize speed/depth pairings by their probability of detection: “low”=green, “medium” = yellow, and “high” = red:
+
+
+<center>
+<img src="https://github.com/jataware/pycubedoe/blob/main/images/plot.png" width="400">
+</center>
+
+ 
+From the plot we can see to minimize the probability of detection, the captain should make his transit between 4 and 8 knots at a depth greater than 80 meters.
+
 
 ## Acknowledgments
 
