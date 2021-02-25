@@ -121,9 +121,11 @@ print(modelResults)
 
 Problem: You are a submarine captain and wish to transit the Straits of Gibraltar undetected. Only two factors determine whether or not you will be detected: speed (in knots) and depth (in meters).  Your submarine is capable of making up to 10 knots underwater and can descend to a maximum depth of 100 meters. 
 
-You are provided with two models that predict the probability of detection for various speeds and depths: What speed and depth should you make your transit?
+You are provided with two models, `probDetect_SPEED` and `probDetect_DEPTH`, that predict the probability of detection for various speeds and depths.
 
-First, bring your own model for the analysis. In this vignette there is a `detect` model where `probDetect_SPEED` and `probDetect_DEPTH` are separate functions that predict the probability of detection based on either speed or depth):
+What speed and depth should you make your transit?
+
+First, bring your own model for the analysis. In this vignette, the `detect` model predicts the probability that at least one detection (due to speed or depth) occurs:
 
 ```
 def detect(designPT):
