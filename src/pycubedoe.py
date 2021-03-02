@@ -175,12 +175,12 @@ def pycubeDOE(numeric=None, categorical=None):
         if numFactors <= 7:
             df = pd.DataFrame(d_seven)
 
-        # Both numeric and categorical
+        # Both Numeric and Categorical
         if numeric != None and categorical != None:
             tx_cats = cat_to_numeric(categorical)
             factorsAll = {**numeric, **tx_cats}
 
-        # Numeric only
+        # Numeric Only
         if numeric != None and categorical == None:
             factorsAll = numeric
 
@@ -188,16 +188,16 @@ def pycubeDOE(numeric=None, categorical=None):
         if numeric == None and categorical != None:
             factorsAll = cat_to_numeric(categorical)
 
-        # Resize and rename cols
+        # Drop unneeded cols from base factor df
         dropCol = len(df.columns) - len(factorsAll)
         if dropCol > 0:
             df.drop(df.columns[-dropCol:], axis=1, inplace=True)
 
-        # Rename to column headers to param keys
+        # Rename column headers to user's factors
         names = pd.DataFrame(factorsAll).columns.to_series()
         df.columns = names
 
-        # Convert base numbers to user ranges
+        # Convert base factor levels to user ranges
         numRuns = df.shape[0] - 1
         df_runs = df.copy(deep=True)
 
@@ -206,11 +206,9 @@ def pycubeDOE(numeric=None, categorical=None):
             hi = factorsAll[key][1]
             dc = factorsAll[key][2]
 
-            df_runs[key] = df_runs[key].apply(
-                lambda x: transform_base(x, lo, hi, dc, numRuns)
-            )
+            df_runs[key] = df_runs[key].apply(lambda x: transform_base(x, lo, hi, dc, numRuns))
 
-        # map int for cats back to cat
+        # map integer for categorical factors back to categorical factor levels
         if categorical != None:
             for key in categorical.keys():
                 df_runs[key] = df_runs[key].apply(lambda x: categorical[key][x - 1])
