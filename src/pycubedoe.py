@@ -6,7 +6,6 @@ import pandas as pd
 ######  FACTORS  ######
 #######################
 
-
 d_seven = {'f4': [6, 2, 3, 4, 13, 17, 11, 10, 9, 12, 16, 15, 14, 5, 1, 7, 8],
            'f5': [17, 5, 8, 11, 16, 6, 4, 15, 9, 1, 13, 10, 7, 2, 12, 14, 3],
            'f7': [14, 15, 2, 6, 8, 7, 17, 13, 9, 4, 3, 16, 12, 10, 11, 1, 5],
@@ -120,7 +119,6 @@ def transform_base(x, lo, hi, dc, numRuns):
     dc = number of significat digits (decimals) desired
     numRuns = number of design points for chosen number of factors
     """
-
     if dc == 0:
         return int(round(lo + ((x - 1) * (hi - lo) / numRuns), dc))
     else:
