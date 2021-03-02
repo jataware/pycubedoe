@@ -164,9 +164,12 @@ for designPT in pc.designPoints(DOE):
 
 Finally, analyze the results. For this analysis, the captain told his analyst to categorize speed/depth pairings by their probability of detection: “low”=green, “medium” = yellow, and “high” = red:
 
+
 ![](https://github.com/jataware/pycubedoe/raw/main/images/plot.png)
+
  
 From the plot we can see to minimize the probability of detection, the captain should make his transit between 4 and 8 knots at a depth greater than 80 meters.
+
 
 ## Acknowledgments
 

@@ -1,5 +1,5 @@
 
-pycubeDOE - Generate design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.
+pycubedoe - Generate design of experiments by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.
 Copyright (c) 2021, Travis Hartman.
 
 Based on work from:

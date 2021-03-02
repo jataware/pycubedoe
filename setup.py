@@ -13,15 +13,13 @@ from os.path import splitext
 from setuptools import find_packages
 from setuptools import setup
 
-
-
 wrkDir = path.abspath(path.dirname(__file__))
 with open(path.join(wrkDir, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
     name='pycubedoe',
-    version='0.1.3',
+    version='0.1.7',
     license='LGPL-3.0-or-later',
     description='Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.',
     long_description=long_description,

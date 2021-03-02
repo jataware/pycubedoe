@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: pycubedoe
-Version: 0.1.3
+Version: 0.1.7
 Summary: Generates design of experiements by constructing a nearly orthogonal latin hypercube with user-defined factors and appropriate factor ranges.
 Home-page: https://github.com/jataware/pycubedoe
 Author: Travis Hartman
@@ -10,13 +10,23 @@ Project-URL: Changelog, https://github.com/jataware/pycubedoe/blob/master/CHANGE
 Project-URL: Issue Tracker, https://github.com/jataware/pycubedoe/issues
 Description: # pycubedoe
         
-        pycubedoe generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. The underling space-filling matrices are provided by the NOLHDesigns_v6.xls spreadsheet: Generating nearly orthogonal Latin Hypercube designs. More information on the NOLHDesigns can be found at: https://nps.edu/web/seed/software-downloads.
+        `pycubedoe` generates a design of experiments (DOE) by constructing a Nearly Orthogonal Latin Hypercube (NOLH) with user-defined factors and appropriate factor levels. 
         
-        Each row of the DOE is a design point that is a point value inclusive to the user-assigned parameter ranges. In turn, instantiating a model run over each design point constitutes a metamodel. This approach allows for the simple and quick exploration of the effects of varying parameter values on your model of choice through analysis of the metamodel results.
+        Terminology:
+        
+          - **Factor**: Independent variables of a model or experiment.
+          - **Level**: A specific factor value or factor setting.
+          - **DOE**: A method to evaluate the effects of various factor levels on a model or experiment.
+          - **Design Point**: A subset of the DOE where each row of the design matrix is a design point. Each factor in the design point is assigned a unique level inclusive to a pre-defined range.
+          - **Metamodel**: The result of instantiating a model run over each design point. Through analysis, a metamodel can provide insights into the model’s behavior.
+        
+        A “good” DOE will have space-filling properties with design points that are “distributed throughout the entire experimental region. This permits a greater opportunity to identify contours that define regions where interesting behavior occurs” [Cioppa, 23]. While there are several DOE classes such as full and fractional factorials, or response surface analysis, this package leverages the NOLH technique that allows for the efficient sampling of large design spaces. 
+        
+        The NOLH design improves upon Latin Hypercube Techniques (implemented by the pyDOE package which assigns levels randomly) by generating nearly orthogonal design points with a maximum pairwise correlation no greater than 0.03 [Cioppa, 23]. Randomly generated Latin Hypercube design points cannot claim this same correlation minimization. By eliminating or minimizing the correlation, the NOLH DOE “enhances our ability to analyze and estimate as many effects [and] interactions…as possible” [Cioppa, 21]. NOLH design also reduces the computational load requirements when compared to other DOE design techniques. This allows for faster, yet still effective, exploration of the design space.
         
         A note on design points:
         
-        The number of design points is dictated by the number of factors chosen. Below is table detailing the number of design points that will be generated for your DOE:
+        `pycubedoe` allows for both numeric and categorical factors. The number of design points is dictated by the total number of factors, both numeric and categorical. Below is table detailing the number of design points that will be generated based on the number of factors:
         
         
         | Number of Factors           | Number of Design Points (rows)  |
@@ -117,18 +127,72 @@ Description: # pycubedoe
         print(modelResults) 
         ```
         
+        ## Vignette:
+        
+        Problem: You are a submarine captain and wish to transit an area undetected. Only two factors determine whether or not you will be detected: speed (in knots) and depth (in meters).  Your submarine is capable of making up to 10 knots underwater and can descend to a maximum depth of 100 meters. 
+        
+        You are provided with two models, `probDetect_SPEED` and `probDetect_DEPTH`, that predict the probability of detection for various speeds and depths.
+        
+        What speed and depth should you make your transit?
+        
+        First, bring your own model for the analysis. In this vignette, the `detect` model predicts the probability that at least one detection (due to speed or depth) occurs:
+        
+        ```
+        def detect(designPT):
+            
+            speed = designPT[0]
+            depth = designPT[1]
+            
+            #Calculate probability "at least one detection happens"
+            P_speed = 1 - probDetect_SPEED(speed)
+            P_depth = 1 - probDetect_DEPTH(depth)
+            
+            P_detect = 1 - (P_speed * P_depth)
+            return P_detect
+        ```
+        
+        Second, generate your DOE:
+        
+        ```
+        speed = [0,10,1]   # knots
+        depth = [0,100,0]  # meters
+        
+        nums = {"speed":speed, "depth": depth}
+        cats = None
+        
+        DOE = pc.pycubeDOE(nums,cats)
+        ```
+        
+        Then, run your model over each design point in the DOE:
+        
+        ```
+        modelResults = []
+        for designPT in pc.designPoints(DOE):
+            sim = detect(designPT)
+            modelResults.append(sim)
+        ```
+        
+        Finally, analyze the results. For this analysis, the captain told his analyst to categorize speed/depth pairings by their probability of detection: “low”=green, “medium” = yellow, and “high” = red:
+        
+        
+        ![](https://github.com/jataware/pycubedoe/raw/main/images/plot.png)
+        
+         
+        From the plot we can see to minimize the probability of detection, the captain should make his transit between 4 and 8 knots at a depth greater than 80 meters.
+        
+        
         ## Acknowledgments
         
-        The full designs for up to 22 factors are from Tom Cioppa's 2002 PhD dissertation (2002).  For ease of application, we use a slightly different column order for designs with fewer factors.  The 29-factor design was provided by Andy Hernandez.  For more details about the properties or application of these designs, see 
+        The underlying code to generate the DOE was provided by NOLHDesign_v6.xls spreadsheet provided under a GNU Lesser General Public License and developed by Susan M. Sanchez, January 2004. Version 6: March 2015:
         
-          Cioppa, T. M. and T. W. Lucas.  2007.  Efficient nearly orthogonal and space-filling Latin hypercubes.
-          Technometrics 49(1):  45-55.
+          Sanchez, S. M.  2015.  NOLHdesigns spreadsheet.  Available online via http://harvest.nps.edu/ accessed 02/15/2021
+        
+        The full designs for up to 22 factors are from Tom Cioppa's 2002 PhD dissertation (2002). The 29-factor design was provided by Andy Hernandez.  For more details about the properties or application of these designs, see 
+        
+          Cioppa, T. M. (2002) Efficient Nearly Orthogonal and Space-filling Experimental Design for High-Dimensional Compex Models. (https://apps.dtic.mil/dtic/tr/fulltext/u2/a406957.pdf.
         
           Kleijnen, J. P. C., S. M. Sanchez, T. W. Lucas, and T. M. Cioppa.  A user's guide to the brave new world of
           designing simulation experiments.  INFORMS Journal on Computing 17(3): 263-289.
-        
-        For more information:
-        Links to handouts, papers, presentations, and examples that you may find useful will be maintained at http://harvest.nps.edu, along with future updates of this worksheet.  You can also contact the author at ssanchez@nps.edu developed by Susan M. Sanchez, January 2004. Version 6: March 2015.
         
         ## License:
         
@@ -137,7 +201,6 @@ Description: # pycubedoe
         Copyright (c)  2021  Travis Hartman
         
         Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free Documentation License, Version 1.2 or any later version published by the Free Software Foundation; with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the license is included in the section entitled "GNU Free Documentation License".
-        
 Keywords: design of experiements,DOE,hypercube,latin hypercube,design point
 Platform: UNKNOWN
 Classifier: Development Status :: 5 - Production/Stable

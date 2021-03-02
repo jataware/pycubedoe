@@ -97,12 +97,9 @@ d_twentyninepalms = {'f1': [103, 31, 42, 105, 95, 114, 12, 100, 20, 125, 36, 19,
                 'f28': [62, 65, 114, 50, 150, 90, 38, 20, 94, 75, 27, 2, 10, 89, 48, 105, 249, 158, 145, 172, 186, 213, 142, 257, 146, 154, 236, 143, 235, 250, 209, 228, 36, 102, 52, 76, 13, 34, 55, 46, 44, 3, 88, 92, 64, 37, 12, 139, 165, 161, 254, 127, 124, 247, 149, 188, 177, 163, 141, 199, 244, 147, 126, 181, 190, 240, 198, 191, 187, 200, 175, 155, 197, 202, 185, 205, 195, 233, 211, 179, 39, 91, 5, 106, 78, 35, 123, 80, 69, 66, 29, 28, 24, 31, 6, 17, 160, 232, 226, 133, 148, 136, 237, 157, 218, 107, 217, 239, 171, 251, 176, 159, 96, 118, 85, 42, 84, 120, 74, 51, 54, 130, 33, 43, 16, 57, 121, 15, 129, 196, 193, 144, 208, 108, 168, 220, 238, 164, 183, 231, 256, 248, 169, 210, 153, 9, 100, 113, 86, 72, 45, 116, 1, 112, 104, 22, 115, 23, 8, 49, 30, 222, 156, 206, 182, 245, 224, 203, 212, 214, 255, 170, 166, 194, 221, 246, 119, 93, 97, 4, 131, 134, 11, 109, 70, 81, 95, 117, 59, 14, 111, 132, 77, 68, 18, 60, 67, 71, 58, 83, 103, 61, 56, 73, 53, 63, 25, 47, 79, 219, 167, 253, 152, 180, 223, 135, 178, 189, 192, 229, 230, 234, 227, 252, 241, 98, 26, 32, 125, 110, 122, 21, 101, 40, 151, 41, 19, 87, 7, 82, 99, 162, 140, 173, 216, 174, 138, 184, 207, 204, 128, 225, 215, 242, 201, 137, 243], 
                 'f29': [8, 102, 49, 62, 16, 36, 66, 33, 21, 15, 109, 115, 84, 30, 9, 113, 131, 154, 31, 117, 151, 44, 116, 72, 55, 119, 82, 10, 13, 136, 108, 69, 236, 239, 148, 200, 124, 175, 234, 235, 162, 212, 216, 246, 223, 206, 188, 157, 233, 185, 146, 163, 194, 197, 147, 240, 155, 170, 218, 166, 253, 257, 201, 210, 153, 252, 220, 126, 152, 137, 251, 123, 219, 130, 202, 229, 177, 254, 190, 133, 179, 158, 199, 213, 195, 161, 164, 181, 180, 144, 193, 184, 205, 232, 138, 224, 98, 89, 90, 14, 71, 91, 86, 87, 20, 75, 28, 17, 51, 47, 43, 76, 41, 85, 11, 80, 93, 27, 118, 67, 50, 99, 54, 37, 32, 60, 3, 2, 129, 250, 156, 209, 196, 242, 222, 192, 225, 237, 243, 149, 143, 174, 228, 249, 145, 127, 104, 227, 141, 107, 214, 142, 186, 203, 139, 176, 248, 245, 122, 150, 189, 22, 19, 110, 58, 134, 83, 24, 23, 96, 46, 42, 12, 35, 52, 70, 101, 25, 73, 112, 95, 64, 61, 111, 18, 103, 88, 40, 92, 5, 1, 57, 48, 105, 6, 38, 132, 106, 121, 7, 135, 39, 128, 56, 29, 81, 4, 68, 125, 79, 100, 59, 45, 63, 97, 94, 77, 78, 114, 65, 74, 53, 26, 120, 34, 160, 169, 168, 244, 187, 167, 172, 171, 238, 183, 230, 241, 207, 211, 215, 182, 217, 173, 247, 178, 165, 231, 140, 191, 208, 159, 204, 221, 226, 198, 255, 256]}
 
-
-
 #######################
 ###### FUNCTIONS ######
 #######################
-
 
 def cat_to_numeric(cats):
     """Convert categorical number to number"""
@@ -113,7 +110,6 @@ def cat_to_numeric(cats):
         params_cat[key] = tempParam
 
     return params_cat
-
 
 def transform_base(x, lo, hi, dc, numRuns):
     """Lambda function to convert baseline factor levels to user-defined factor ranges
@@ -129,7 +125,6 @@ def transform_base(x, lo, hi, dc, numRuns):
         return int(round(lo + ((x - 1) * (hi - lo) / numRuns), dc))
     else:
         return round(lo + ((x - 1) * (hi - lo) / numRuns), dc)
-
 
 def pycubeDOE(numeric=None, categorical=None):
     """
@@ -222,51 +217,6 @@ def pycubeDOE(numeric=None, categorical=None):
             for key in categorical.keys():
                 df_runs[key] = df_runs[key].apply(lambda x: categorical[key][x - 1])
         return df_runs
-
-def runModel(DOE, model):
-    """
-    Description: 
-      Instantiate and run your model for each design point.
-
-    Parameters:
-      DOE: pandas dataframe of user factors (columns) with NOLH design points (rows)
-      model: any user provided model
-
-    Usage:
-      For the "model" parameter, do not provide the usually required parameters to run the model. 
-      Strictly enter the name of the function without any arguments. The variable names and the
-      associated design-point values are automatically derived from the DOE dataframe.
-    """
-    
-    # initialize
-    result = []
-    DOE_T = DOE.T
-    varNames = tuple(DOE_T[0].index)
-    
-    # For each design-point...
-    for i in range(DOE.shape[0]):
-
-        #...create a dictionary where key=variable name and value= variable value
-        varDict = {}
-        for varName in varNames:
-            varDict[varName] = DOE_T[i][varNames.index(varName)]
-
-        #...and for each key/value pair in new varDict, assign the variable a value 
-        for key,val in varDict.items():
-            if type(val) == str:
-                exec(f'{key} = "{val}"',globals())
-
-            else:    
-                exec(f'{key} = {val}',globals())       
-
-            print(f'Running model over design point {i+1}', end="\r")
-            
-            #...and finally instantiate and run the model over the deisgn point
-            res = model() 
-
-        result.append(res) 
-
-    return result
 
 def exampleModel():
     '''
