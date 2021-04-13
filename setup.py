@@ -17,6 +17,7 @@ wrkDir = path.abspath(path.dirname(__file__))
 with open(path.join(wrkDir, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+# THIS IS TEST git commit
 setup(
     name='pycubedoe',
     version='0.1.7',
